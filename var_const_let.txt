@@ -1,0 +1,51 @@
+https://codepen.io/anon/pen
+
+กำหนดใน setting เลือก babel เป็น Processor  ของ js 
+
+ใช้ในการเรียน ex6
+https://www.youtube.com/watch?v=saSqEYEFESM&list=PLcCp4mjO-z99oqlzmIKGI7C9iSCOsBbvW&index=2
+
+var กัย let+const ต่างกันที่ scope
+ต้องหลีกเลี่ยงการใช้ var เพราะมันทำการ hoisting โดยไม่บอกเรา
+ถ้าใช้ let,const จะเหมือนโปรแกรมอื่นๆ เราต้องกำหนด ตัวแปรทุกครั้ง
+ใน scope ที่เราใช้งานจะได้ไม่สับสน
+
+var เป็นระดับ function scope
+โปรแกรมจะกำหนด
+var x= undefined ทุกครั้ง ในฟังก์ชันทุกครั้งไม่บอกเรา เรียว่า hoisting
+
+const กับ let เป็น block scope
+
+ต่างกันที่ const กำหนดค่าได้ครั้งเดียว
+
+for (let i=1;i<10;i++){} ทำได้
+for (const i=1;i<10;i++){} ทำไม่ได้ เพราะ กำหนดค่าได้ครั้งเดียว
+
+แต่กับ object const ทำได้ 
+เพราะค่า ใน object เป็นเพียง ค่าใน property เท่านั้น
+
+const person={
+  name:'Nikhom'
+}
+console.log(person.name)
+person.name='Jack'
+console.log(person.name)
+person.surname='Peter'
+console.log(person.surname)
+
+แต่ถ้าป้องกันไม่ให้แก้ไขก็ต้องทำ
+const person={
+  name:'Nikhom'
+}
+object.freeze(person)
+person.name='Jack'
+console.log(person.name)
+
+แต่เปลี่ยนระเภทตัวแปร จาก object เป็น ตัวเลข 12 ไม่ได้
+const person={
+  name:'Nikhom'
+}
+person.name='jack'
+person.surname='smart'
+
+person=12

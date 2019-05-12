@@ -1,0 +1,88 @@
+https://codepen.io/anon/pen
+
+กำหนดใน setting เลือก babel เป็น Processor  ของ js 
+
+https://www.youtube.com/watch?v=rRgD1yVwIvE
+
+
+const person=[
+  {name:"Nikhom", age:41,sex:"male"},
+  {name:"Moo", age:30,sex:"female"},
+  {name:"Peter", age:35,sex:"male"},
+  {name:"Sudoku", age:12,sex:"female"}
+]
+
+/*
+//for loop
+for(let i=0;i<person.length;i++){
+  console.log(person[i]);
+}
+*/
+
+/*
+//forEach
+person.forEach((a)=>{
+  console.log(a);
+})
+*/
+/*
+//fitler = to filter some members from existing array
+//filter
+const oldPerson=person.filter(p=>p.age>18)
+console.log(oldPerson);
+*/
+
+/*
+//filter 
+const malePerson=person.filter(p=>p.sex==="male")
+console.log(malePerson);
+
+//filter out
+const notMalePerson=person.filter(p=>p.sex!=="male")
+console.log(notMalePerson);
+*/
+
+//map to create new array base on existing array info 
+/*
+const personName=person.map((p)=>{
+  return `${p.name} is a good person`
+})
+console.log(personName);
+
+const ageSquare=person.map((p)=>p.age*p.age)
+console.log(ageSquare)
+*/
+
+//sort
+/*
+const sortPerson=person.sort((p1,p2)=>{
+  if(p1.age>p2.age){
+    return 1;
+  }else{
+    return -1
+  }
+})
+//or in short form
+const sortPerson=person.sort((a,b)=>(a.age>b.age ? 1 : -1));
+console.log(sortPerson)
+
+const sortPersonUp=person.sort((a,b)=>a.age-b.age);
+console.log(sortPersonUp)
+const sortPersonDown=person.sort((a,b)=>b.age-a.age);
+console.log(sortPersonDown)
+*/
+
+/*
+//reduce
+//reduce can be confuse
+//0 = iniitial of sum value
+//total+p.age ===========>  total+=p.age
+const ageSum=person.reduce((total,p)=>total+p.age,0);
+console.log(ageSum);
+*/
+
+//combine
+const combine=person.map(p=>p.age*2).filter(p=>p>50).sort((a,b)=>b-a).reduce((total,a)=>total+a,0);
+                   
+
+console.log(combine);

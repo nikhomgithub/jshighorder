@@ -1,0 +1,88 @@
+js ไม่ใช่ class base program
+
+ปกติเราสามารถ extend คลาสได้
+
+ใน js ทุกๆ object จะมี prototype property
+เพราะทุกๆ object มาจาก global object อันเดียวกัน
+ซึ่งก็มี prototype property ด้วย ดังนั้น
+
+ตย การสร้าง oject เปล่าๆขึ้นมา 
+var obj={}
+console.log(obj.__proto__)
+
+จะได้เห็น property ต่างๆ ที่ทุกๆ objec6 ต้องมี
+    {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+    constructor: ƒ Object()
+    hasOwnProperty: ƒ hasOwnProperty()
+    isPrototypeOf: ƒ isPrototypeOf()
+    propertyIsEnumerable: ƒ propertyIsEnumerable()
+    toLocaleString: ƒ toLocaleString()
+    toString: ƒ toString()
+    valueOf: ƒ valueOf()
+    __defineGetter__: ƒ __defineGetter__()
+    __defineSetter__: ƒ __defineSetter__()
+    __lookupGetter__: ƒ __lookupGetter__()
+    __lookupSetter__: ƒ __lookupSetter__()
+    get __proto__: ƒ __proto__()
+    set __proto__: ƒ __proto__()
+
+
+
+สำหรับ การสร้างคลาสใน es 6 ด้านล่าง
+มีการใช้ตัวแปรแบบ  _balance ไม่ให้ชื่อซ้ำกับ argument จะทำให้วนลูปไม่รู้จบ
+มีการสร้างฟังก์ชันใน proto เพื่อประหยัด mem
+มีการสร้าง get และ set เพื่อเข้าถึงตัวแปรอย่างปลอดภัย 
+
+class Account{
+  constructor(balance){
+    this._balance=balance //conventional way to set a _balance
+  }
+  
+  //any function out of constructor will be in global prototype for mem saving
+  
+  deposit(amount){
+    this._balance+=amount
+  }
+  
+  get balance(){
+    return this._balance
+  }
+  
+  set balance(balance){
+    if(balance<0)
+      throw 'Balance must be positive'
+    
+    this._balance=balance
+  }
+
+  static printBalance(){
+    console.log("Bood boy")
+  }
+
+}
+
+let acct=new Account(500) //initate object
+
+console.log(acct.balance) //get balance()
+
+acct.balance=1000 //set balance
+
+console.log(acct.balance) //get balance
+
+//เราสามารถสร้าง extend class ง่ายๆ โดยสามารถ อินเฮริท มากจากคลาสแม่ได้
+//extend class
+class PremiumAccount extends Account{
+   constructor(balance,bonusPoint){
+     super(balance)
+     this._bonusPoint=bonusPoint
+   }
+}
+
+let pmcct=new PremiumAccount(500,100);
+console.log(pmcct.balance)
+pmcct.deposit(100)
+console.log(pmcct.balance)
+Account.printBalance()
+
+เราสามารถไปที่ babeljs.io แล้วใส่ es6 ลงไป มันจะแปลงเป็น ex5 ให้
+แต่ใน es6 ไม่สามารถใส่ static property (ค่าคงที่) ใน proto ได้
