@@ -339,6 +339,7 @@ console.log(count)
 //{blue: 2, green: 3, black: 1, orange: 1, red: 1}
 */
 
+/*
 function increment(input) { return input + 1;}
 function decrement(input) { return input - 1;}
 function double(input) { return input * 2; }
@@ -350,3 +351,236 @@ const result = pipeline.reduce(function(total, func) {
   return func(total);
 }, 1);
 console.log(result) // 3
+*/
+
+
+const muscles=[
+  'shoulders','chest','arms','back','legs'
+]
+
+const excercising=[
+{
+  id:'legs3',
+  title:'legs3 title',
+  description:'descrip legs3...',
+  muscles:'legs'
+},
+{ 
+id:'shoulder1',
+title:'shoulder1 title',
+description:'descrip shoulder1...',
+muscles:'shoulders'
+},
+{
+id:'shoulder2',
+title:'shoulder2 title',
+description:'descrip shoulder2...',
+muscles:'shoulders'
+},
+{
+id:'chest1',
+title:'chest1 title',
+description:'descrip chest1...',
+muscles:'chest'
+},
+{
+id:'chest2',
+title:'chest2 title',
+description:'descrip chest2...',
+muscles:'chest'
+},
+
+{
+id:'arms1',
+title:'arms1 title',
+description:'descrip arms1...',
+muscles:'arms'
+},
+{
+id:'arms2',
+title:'arms2 title',
+description:'descrip arms2...',
+muscles:'arms'
+},
+{
+id:'back1',
+title:'back1 title',
+description:'descrip back1...',
+muscles:'back'
+}, 
+{
+  id:'back2',
+  title:'back2 title',
+  description:'descrip back2...',
+  muscles:'back'
+}
+, 
+{
+id:'legs1',
+title:'legs1 title',
+description:'descrip legs1...',
+muscles:'legs'
+},
+{
+id:'legs2',
+title:'legs2 title',
+description:'descrip legs2...',
+muscles:'legs'
+},
+
+  
+]
+
+
+/*
+targeted result
+[
+ { 
+ muscles:leg,
+ training:[{}]
+ },
+ 
+ { 
+  muscles:leg,
+  training:[{}]
+ }
+]
+*/
+
+/* Bravo Bravo Finish
+const newArrayB=(input2,input1)=>{
+  result=[]
+  input2.map((m)=>{
+    const t={}
+    t.muscles=m
+    t.detail=[]
+    result=[...result,t]
+    input1.map(n=>{
+      if(n.muscles===m){
+        t.detail.push(n)
+      }
+    })
+  })
+  return result;
+}
+console.log(newArrayB(muscles,excercising))
+    /*
+    (5) [{…}, {…}, {…}, {…}, {…}]
+    0: {muscles: "shoulders", detail: Array(2)}
+    1: {muscles: "chest", detail: Array(2)}
+    2: {muscles: "arms", detail: Array(2)}
+    3: {muscles: "back", detail: Array(2)}
+    4: {muscles: "legs", detail: Array(3)}
+    */
+*/
+
+/*
+const newArrayB=(input2)=>{
+  result=[]
+  input2.map((m)=>{
+    const t={}
+    t.muscles=m
+    result=[...result,t]
+  })
+  return result;
+}
+console.log(newArrayB(muscles))
+//(5) [{…}, {…}, {…}, {…}, {…}]
+//0: {muscles: "shoulders"}
+//1: {muscles: "chest"}
+//2: {muscles: "arms"}
+//3: {muscles: "back"}
+//4: {muscles: "legs"}
+*/
+
+
+/*
+const newArrayA=(input1)=>{
+let result={}
+input1.map(f=>{
+  if(!result[f.muscles]){
+    result[f.muscles]=1
+  }
+  else{
+    result[f.muscles]=result[f.muscles]+1;
+  }
+})
+return result
+}
+console.log(newArrayA(excercising))
+//{shoulders: 2, chest: 2, arms: 2, back: 2, legs: 2}
+*/
+
+
+/*
+const newArrayA=(input)=>{
+  const result=input.reduce((total,f)=>{
+    return 1
+  },[])
+  return result
+}
+console.log(newArrayA(excercising))
+*/
+
+
+/*
+const newArrayB=(input)=>{
+  let result=[]
+  input.map((m)=>{
+    result.push(m)
+  })
+  return result
+}
+console.log(newArrayB(muscles))
+//["shoulders", "chest", "arms", "back", "legs"]
+*/
+
+
+/*
+const newArrayB=(input)=>{
+  let result=[]
+  input.map((m)=>{
+    result=[...result,m]
+  })
+  return result
+}
+console.log(newArrayB(muscles))
+//["shoulders", "chest", "arms", "back", "legs"]
+*/
+
+
+//init object
+/*
+const a={}//create object
+a.name="Nikhom"; //create property
+a["surname"]="Phut"; //create property
+const b=[a] //create array
+const c=[...b,{name:"Moo",surname:"Vijit"}]//modify array
+console.log(c)
+*/
+
+
+/*
+const newArray=(arrayA)=>arrayA.reduce((total,f)=>{
+  console.log(f.muscles)//shoulders
+  console.log(total[f.muscles])//undefine
+  if (!total[f.muscles]) {    
+    total[f.muscles] = 1 ;//shoulder:1
+  } else {
+    total[f.muscles] = total[f.muscles] + 1//shoulder:1+1
+    ;
+  }
+  console.log(total)
+  return total; 
+},{}) //init object
+*/
+
+/*
+const newArray=(arrayA)=>arrayA.reduce((total,f)=>{
+  !total[f.muscles]    
+  ?total[f.muscles] = 1
+  :total[f.muscles] = total[f.muscles] + 1;
+  return total;
+},{})
+*/
+
