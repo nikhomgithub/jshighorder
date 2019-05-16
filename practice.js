@@ -447,15 +447,16 @@ targeted result
 ]
 */
 
+//Use forEach instead of map
 /* Bravo Bravo Finish
 const newArrayB=(input2,input1)=>{
   result=[]
-  input2.map((m)=>{
+  input2.forEach((m)=>{
     const t={}
     t.muscles=m
     t.detail=[]
     result=[...result,t]
-    input1.map(n=>{
+    input1.forEach(n=>{
       if(n.muscles===m){
         t.detail.push(n)
       }
