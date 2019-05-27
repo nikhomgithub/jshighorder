@@ -1,0 +1,18 @@
+
+
+var parts = ['two', 'three'];
+
+var numbers = ['one', ...parts, 'four', 'five']; // ["one", "two", "three", "four", "five"]
+
+var person= {
+    name: 'Alex',
+    age: 35 
+}
+
+
+
+This
+<Modal {...person} title='Modal heading' animation={false} />
+
+Equal To
+<Modal name={person.name} age={person.age} title='Modal heading' animation={false} />
