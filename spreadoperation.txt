@@ -16,3 +16,19 @@ This
 
 Equal To
 <Modal name={person.name} age={person.age} title='Modal heading' animation={false} />
+
+
+
+
+
+
+let a={
+    age:[1,2,3,4,5]
+}
+
+let b={...a,age:[6,7,8,9],age:["Mee"]}
+//Equal to
+//let b={age:[1,2,3,4,5],age:[6,7,8,9],age:["Mee"]}
+
+console.log(b);    
+//{age:Array(1)} >>age:["Mee"]
