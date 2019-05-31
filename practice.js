@@ -585,3 +585,205 @@ const newArray=(arrayA)=>arrayA.reduce((total,f)=>{
 },{})
 */
 
+//===================================
+//===================================
+
+/*
+//How Asynchrous Work
+
+const posts=[
+  {title:'Post1'},
+  {title:'Post2'}
+]
+
+//Async 1
+const getPost=(array)=>{
+  setTimeout(()=>{
+    let output='';
+    array.forEach((m)=>{
+      output+=` ${m.title} and`
+    });
+    console.log(output);
+    
+  },1000)
+}
+
+//Async 2
+createPost=(array,newobj)=>{
+  setTimeout(()=>{
+    array.push(newobj)
+  },1500)
+}
+
+createPost(posts,{title:'Post 3'});
+
+getPost(posts);
+console.log('ok');
+
+//Result
+//ok
+//Post1 and Post2 and
+//Post 3 No Show...
+*/
+//===========================
+//Call back in Asynchronous
+//Normally we need to arrage by ourself
+//Async 1
+/*
+const posts=[
+  {title:'Post1'},
+  {title:'Post2'}
+]
+
+const getPost=(array)=>{
+  setTimeout(()=>{
+    let output='';
+    array.forEach((m)=>{
+      output+=` ${m.title} and`
+    });
+    console.log(output);
+    
+  },1000)
+}
+
+//Async 2
+createPost=(array2,newobj,callback)=>{
+  setTimeout(()=>{
+    posts.push(newobj)
+    //callback(array2); 
+    //this is call back by design
+    
+  },1500);
+  callback(array2); 
+  //Post1 and Post2 and
+  // this is not call back
+}
+
+
+createPost(posts,{title:'Post 3'},getPost);
+//Post1 and Post2 and Post 3 and
+*/
+//==================================
+//basic promise
+
+/*
+let p1=new Promise((resolve,reject)=>{
+  if(true)
+    {resolve('p1 resolved')}
+  else
+    {reject('p1 rejected')}
+})
+
+let p2=Promise.resolve('p2 resolved');
+
+let p3=()=>Promise.resolve('p3 resolved');
+
+let p4=()=>Promise.reject('p4 rejected');
+
+
+p1.then(m=>console.log(m));
+//p1 resolved
+p2.then(m=>console.log(m));
+//p2 resolved
+p3().then(m=>console.log(m));
+//p3 resolved
+p4().then(m=>console.log('ok')).catch(m=>console.log(m));
+//p4 rejected
+*/
+
+//=================
+//Promise.all
+/*
+const promise1=Promise.resolve('Hello World');
+const promise2=10;
+const promise3=new Promise((resolve,reject)=>{
+  setTimeout(resolve,4000,'Goodbye')
+})
+const promise4=fetch('https://jsonplaceholder.typicode.com/users').then(res=>res.json());
+
+Promise.all([promise1,promise2,promise3,promise4])
+.then(m=>console.log(m));
+//(4) ["Hello World", 10, "Goodbye", Array(10)]
+//it happet accordingly 1,2,3,4
+*/
+
+//==================================
+//promise advance
+/*
+const posts=[
+  {title:'Post1'},
+  {title:'Post2'}
+]
+
+const getPost=(array)=>{
+  setTimeout(()=>{
+    let output='';
+    array.forEach((m)=>{
+      output+=` ${m.title} and`
+    });
+    console.log(output);
+  },10)
+}
+
+const showText=(input)=>{
+  console.log(input)
+}
+
+const createPost=(array,newobj)=>{  
+  return new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+      //array.push(newobj);
+      const error=false;
+      if(!error){
+        let a=[...array,newobj];
+        resolve(a);//.then + what ever function
+      }
+      else{
+        reject('error: something wrong');
+        //.catch + whate ever functioin
+      }       
+    },2000);
+  })
+}
+
+//execution
+createPost(posts,{title:'Post3'})
+  .then(res=>getPost(res))
+  .catch((m)=>showText(m))
+getPost(posts);  
+
+//Post1 and Post2 and
+//Post1 and Post2 and Post3 and //delay beacause timeout
+*/
+//======================================
+//======================================
+/*
+function g(){
+  return Promise.resolve(3);
+}
+g().then(m=>console.log(m))
+
+//
+async function f(){
+  return 1;
+}
+f().then(m=>console.log(m))
+//3
+//1
+*/
+
+
+/*
+async function f(){
+  let p1=new Promise((resolve,reject)=>{
+    setTimeout(()=>resolve('Done'),1000)
+  });
+  
+  let result=await p1;//await=.then
+  console.log(result)
+}
+
+f();
+*/
+
+
