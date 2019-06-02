@@ -897,6 +897,7 @@ const myFunc=()=>{
 
 async function myDelayES8(time){
   await myDelay(time)  
+            //we can have many thing  AWAIT thing after this
   return;
 }
 
