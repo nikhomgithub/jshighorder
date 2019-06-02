@@ -863,9 +863,28 @@ myFunc()
 //Hello
 //=================================
 //==================================
+//For to see reject 
+// This is full return promise
+const myFunc=()=>{
+  myDelay("aa") //This is not number
+    .then(()=>console.log('Hello'))
+    .catch((err)=>console.log(err))
+}
 
+const myDelay=(time)=>{
+  return new Promise((resolve,reject)=>{
+    if(isNaN(time)){reject(new Error('Need Number'));} 
+              //in case not number
+    else{setTimeout(resolve,time)}  
+  });
+}
 
-
-
+myFunc()
+//Error: Need Number
+//=======================================
+//========================================
+//ES 8
+//Syntax sugar
+//Async Await ===>>> 
 
 
