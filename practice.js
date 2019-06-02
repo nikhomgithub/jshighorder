@@ -785,5 +785,87 @@ async function f(){
 
 f();
 */
+////Review Set Time Out
+/*
+const printA=()=>{
+  setTimeout(()=>{
+     console.log("A")
+  },1000)
+}
+
+
+const printB=(callback)=>{
+  console.log("K")
+  setTimeout(()=>{
+     callback()
+     console.log("B")
+  },1000)
+}
+
+//printA();
+printB(printA);
+*/
+//=============================
+//=============================
+//we can create promise as constance by
+let p1=new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+     if(true)
+    {resolve('p1 resolved')}
+    else
+    {reject('p1 rejected')} 
+  },1000)
+})
+//result
+//How to use promise
+p1.then(m=>console.log(m))
+  .catch(err=>console.log(err))
+
+//p1 resolved
+//=============================
+//Create promise as function by
+//============================
+let p1=(m)=>new Promise((resolve,reject)=>{
+  setTimeout(()=>{
+     if(true)
+    {resolve(`${m} p1 resolved`)}
+    else
+    {reject('p1 rejected')} 
+  },1000)
+})
+//result
+//How to use
+p1("Perfect")
+  .then(m=>console.log(m))
+  .catch(err=>console.log(err))
+
+//Perfect p1 resolved
+//==========================================
+//Actually 
+//resolve=return == end of program
+//Create function that give promise
+//in this case myDelay
+ 
+
+const myFunc=()=>{
+  myDelay(1000)
+    .then(()=>console.log('Hello'))
+    .catch((err)=>console.log(err))
+}
+
+const myDelay=(time)=>{
+  return new Promise((resolve,reject)=>{
+    setTimeout(resolve,time) // here resolve==return 
+  });
+}
+
+myFunc()
+//Hello
+//=================================
+//==================================
+
+
+
+
 
 
