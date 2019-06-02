@@ -886,5 +886,28 @@ myFunc()
 //ES 8
 //Syntax sugar
 //Async Await ===>>> 
+//Await mean that "please wait for promise return before do something else
+//
 
+const myFunc=()=>{
+  myDelayES8(1000)
+    .then(()=>console.log('Hello'))
+    .catch((err)=>console.log(err))
+}
+
+async function myDelayES8(time){
+  await myDelay(time)  
+  return;
+}
+
+const myDelay=(time)=>{
+  return new Promise((resolve,reject)=>{
+    if(isNaN(time)){reject(new Error('Need Number'));}     
+    setTimeout(resolve,time)  
+  });
+}
+
+myFunc()
+
+//=================================
 
