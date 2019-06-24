@@ -1,5 +1,5 @@
 <button>Click here</button>
-<h1>aaa</h1>
+<h1>...</h1>
 
 const div=document.querySelector("h1")
 const button=document.querySelector("button")
@@ -29,5 +29,13 @@ button.addEventListener("click",()=>{
     }
   })
 })
+//================================
+@0 = ...
+@click = Checking Auth...
+@2000 =  checkAuth(true)
+         Fetching User...
+@4000 =  <h1>Max<h1>
+
+
 //==========================================
 
