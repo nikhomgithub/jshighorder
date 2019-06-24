@@ -1,0 +1,33 @@
+<button>Click here</button>
+<h1>aaa</h1>
+
+const div=document.querySelector("h1")
+const button=document.querySelector("button")
+
+const setText=(text)=>{
+ div.textContent=text
+}
+
+const checkAuth=(cb)=>{
+  setText('Checking Auth...')
+  setTimeout(()=>{cb(true)},2000)
+}
+
+
+const fetchUser=cb=>{
+  setText('Fetching User...')
+  setTimeout(()=>{cb({name:"Max"})},2000)
+}
+
+//a is arg of cb which is anonymous, which a=true in 2000 milsec
+//b is arg of cb which is anonymous, which b={name:"Max"} in 2000 milsec 
+button.addEventListener("click",()=>{
+  checkAuth((a)=>{
+    if(a){fetchUser((b)=>{
+          setText(b.name)
+        })
+    }
+  })
+})
+//==========================================
+
