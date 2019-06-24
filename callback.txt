@@ -1,3 +1,8 @@
+Call Back
+==================
+=================
+
+
 <button>Click here</button>
 <h1>...</h1>
 
@@ -38,4 +43,84 @@ button.addEventListener("click",()=>{
 
 
 //==========================================
+Promise
+
+const checkAuth=()=>{
+  return new Promise((resolve,reject)=>{ //object that have rosolve and reject function
+   
+     setText('Checking Auth...')
+     setTimeout(()=>{
+        resolve(true) // to return some value after 2000 we can use this value after that
+     },2000)
+     
+  }
+}
+
+const fetchUser=()=>{
+ return new Promise((resolve,reject)=>{  //object that have rosolve and reject function
+   
+   setText('Fetching User...')
+   setTimeout(()=>{
+        resolve({name:"Max"})  // to return some value after 2000 we can use this value after that
+   },2000)
+   
+ }
+}
+
+//======================================
+button.addEventListener("click",()=>{
+  checkAuth()
+  .then(a=>{return fetchUser()})
+  .then(b=>{setText(b)})            
+  
+})
+
+//==========================
+
+@0 = ...
+@click = Checking Auth...
+@2000 =  Fetching User...
+@4000 =  <h1>Max<h1>
+
+//==========================
+//==========================
+async await
+
+//===========================
+const checkAuth=()=>{
+  return new Promise((resolve,reject)=>{ //object that have rosolve and reject function
+   
+     setText('Checking Auth...')
+     setTimeout(()=>{
+        resolve(true) // to return some value after 2000 we can use this value after that
+     },2000)
+     
+  }
+}
+
+const fetchUser=()=>{
+ return new Promise((resolve,reject)=>{  //object that have rosolve and reject function
+   
+   setText('Fetching User...')
+   setTimeout(()=>{
+        resolve({name:"Max"})  // to return some value after 2000 we can use this value after that
+   },2000)
+   
+ }
+}
+//================================
+button.addEventListener("click",async()=>{   //This is async function
+  const isAuth=await checkAuth()  // please wait for checkAuth to return a value
+  let user=null
+  if(isAuth){                        
+    user=await fetchUser()        //please wait for fetchUser to return a value
+  }
+  setText(user.name)         
+})
+
+
+
+
+
+
 
