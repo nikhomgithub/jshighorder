@@ -155,9 +155,6 @@ console.log(menu['beer']);
 console.log(getPrice(menu,'beer'))
 //5
 ============================        
-            
-
-/*
 const menu=[
   {name:"burger",price:10},
   {name:"fries",price:3},
@@ -170,20 +167,12 @@ const getPrice=(men,itm)=>{
 }
 
 console.log(getPrice(menu,"beer"))
-*/
-
-/*
-const menu=[
-  {name:"burger",price:10},
-  {name:"fries",price:3},
-  {name:"beer",price:5},
-]
-
+//0: {name: "beer", price: 5}
+======================
 const result=menu.find(a=>a.name==="burger")
 console.log(result)
-*/
-
-/*
+//{name: "burger", price: 10}
+=========================
 const cars=[
   {brand:"Toyota Altis",type:"sedan"},
   {brand:"Honda Civic",type:"sedan"},
@@ -202,30 +191,38 @@ const typeSedan=(aArray)=>{ const answer=aArray.filter(m=>m.type==="sedan")
 
 const a=typeSedan(cars)
 console.log(a)
-
+//0: {brand: "Toyota Altis", type: "sedan"}
+//1: {brand: "Honda Civic", type: "sedan"}
+==================================
 const typeSuv=(aArray)=>{ const answer=aArray.filter(m=>m.type==="suv")
   return answer;
 }
 
 const b=typeSuv(cars)
 console.log(b)
+//0: {brand: "Toyota Fortuner", type: "suv"}
+//1: {brand: "Ford Everest", type: "suv"}
 
 console.log([...typeSuv(cars),...typeSedan(cars)])
+//0: {brand: "Toyota Fortuner", type: "suv"}
+//1: {brand: "Ford Everest", type: "suv"}
+//2: {brand: "Toyota Altis", type: "sedan"}
+//3: {brand: "Honda Civic", type: "sedan"}
+=============================
+            
+            
 */
 //=================================================
 //=================================================
 //=================================================
 //https://medium.freecodecamp.org/reduce-f47a7da511a9
 //Focus on reduce
-
-/*
 const money=[10,20,30];
 const sum=money.reduce((total,p)=>total+p,0);
 console.log(sum); 
 //60
-*/
 
-/*
+==========================
 const euros = [29.76, 41.85, 46.5];
 const average = euros.reduce((total, amount, index, array) => {
   total += amount;
@@ -237,9 +234,7 @@ const average = euros.reduce((total, amount, index, array) => {
 });
 console.log(average)
 //39.37
-*/
-
-/*
+===================
 const money=[10,20,30];
 const sum=money.reduce((total,p)=>{
   total=total+p
@@ -247,9 +242,7 @@ const sum=money.reduce((total,p)=>{
 },0);
 console.log(sum); 
 //60
-*/
-
-/*
+==========================
 const money=[10,20,30];
 const double=money.reduce((total,p)=>{
   total.push(p*2);
@@ -257,9 +250,7 @@ const double=money.reduce((total,p)=>{
 },[]);
 console.log(double)
 //[20, 40, 60]
-*/
-
-/*
+==========================
 const money=[10,20,30,40];
 const above20=money.reduce((total,p)=>{
   if(p>20){
@@ -269,9 +260,7 @@ const above20=money.reduce((total,p)=>{
 },[])
 console.log(above20);
 //[30, 40]
-*/
-
-/*
+========================
 const fruitbasket=['banana','cherry','orange','apple','banana','orange','apple','apple'];
 
 const count=fruitbasket.reduce((total,f)=>{
@@ -284,11 +273,7 @@ console.log(count) ;
 //banana: undefined
 //cherry: undefined
 //orange: undefined
-*/
-
-
-
-/*
+============================
 const fruitbasket=['banana','cherry','orange','apple','banana','orange','apple','apple'];
 
 const count=fruitbasket.reduce((total,f)=>{
@@ -301,10 +286,7 @@ console.log(count) ;
 //banana: 1
 //cherry: 1
 //orange: 1
-*/
-
-
-/*
+==================================
 const fruitbasket=['banana','cherry','orange','apple','banana','orange','apple','apple'];
 
 const count=fruitbasket.reduce((total,f)=>{
@@ -318,9 +300,7 @@ console.log(count) ;
 //banana: 2
 //cherry: 1
 //orange: 2
-*/
-
-/*
+===============================
 const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'banana', 'cherry', 'orange', 'fig' ];
 
 const count=fruitBasket.reduce((tally, fruit) => {
@@ -334,9 +314,7 @@ const count=fruitBasket.reduce((tally, fruit) => {
 
 console.log(count);
 //{banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1}
-*/
-
-/*
+=================================
 const data=[[1,2,3],[4,5],[6],7];
 
 const flat=data.reduce((total,p)=>{
@@ -345,9 +323,7 @@ const flat=data.reduce((total,p)=>{
 
 console.log(flat)
 //[1, 2, 3, 4, 5, 6, 7]
-*/
-
-/*
+==============================
 const data = [
   {a: 'happy', b: 'robin', c: ['blue','green']}, 
   {a: 'tired', b: 'panther', c: ['green','black','orange','blue']}, 
@@ -363,9 +339,7 @@ const colors = data.reduce((total, amount) => {
 
 console.log(colors)
 //["blue", "green", "green", "black", "orange", "blue", "green", "red"]
-*/
-
-/*
+==============================
 const data = [
   {a: 'happy', b: 'robin', c: ['blue','green']}, 
   {a: 'tired', b: 'panther', c: ['green','black','orange','blue']}, 
@@ -390,11 +364,8 @@ const count=colors.reduce((tally, fruit) => {
 }, {});
 
 console.log(count)
-
 //{blue: 2, green: 3, black: 1, orange: 1, red: 1}
-*/
-
-/*
+=========================================
 function increment(input) { return input + 1;}
 function decrement(input) { return input - 1;}
 function double(input) { return input * 2; }
@@ -405,10 +376,9 @@ let pipeline = [increment, double, decrement];
 const result = pipeline.reduce(function(total, func) {
   return func(total);
 }, 1);
-console.log(result) // 3
-*/
-
-
+console.log(result) 
+// 3
+===================================
 const muscles=[
   'shoulders','chest','arms','back','legs'
 ]
@@ -482,8 +452,6 @@ title:'legs2 title',
 description:'descrip legs2...',
 muscles:'legs'
 },
-
-  
 ]
 
 
@@ -503,7 +471,8 @@ targeted result
 */
 
 //Use forEach instead of map
-/* Bravo Bravo Finish
+//Bravo Bravo Finish
+
 const newArrayB=(input2,input1)=>{
   result=[]
   input2.forEach((m)=>{
@@ -520,17 +489,15 @@ const newArrayB=(input2,input1)=>{
   return result;
 }
 console.log(newArrayB(muscles,excercising))
-    /*
+/*
     (5) [{…}, {…}, {…}, {…}, {…}]
     0: {muscles: "shoulders", detail: Array(2)}
     1: {muscles: "chest", detail: Array(2)}
     2: {muscles: "arms", detail: Array(2)}
     3: {muscles: "back", detail: Array(2)}
     4: {muscles: "legs", detail: Array(3)}
-    */
 */
-
-/*
+===========================
 const newArrayB=(input2)=>{
   result=[]
   input2.map((m)=>{
@@ -547,10 +514,7 @@ console.log(newArrayB(muscles))
 //2: {muscles: "arms"}
 //3: {muscles: "back"}
 //4: {muscles: "legs"}
-*/
 
-
-/*
 const newArrayA=(input1)=>{
 let result={}
 input1.map(f=>{
@@ -565,21 +529,8 @@ return result
 }
 console.log(newArrayA(excercising))
 //{shoulders: 2, chest: 2, arms: 2, back: 2, legs: 2}
-*/
 
-
-/*
-const newArrayA=(input)=>{
-  const result=input.reduce((total,f)=>{
-    return 1
-  },[])
-  return result
-}
-console.log(newArrayA(excercising))
-*/
-
-
-/*
+======================================
 const newArrayB=(input)=>{
   let result=[]
   input.map((m)=>{
@@ -589,10 +540,7 @@ const newArrayB=(input)=>{
 }
 console.log(newArrayB(muscles))
 //["shoulders", "chest", "arms", "back", "legs"]
-*/
-
-
-/*
+===========================
 const newArrayB=(input)=>{
   let result=[]
   input.map((m)=>{
@@ -602,48 +550,26 @@ const newArrayB=(input)=>{
 }
 console.log(newArrayB(muscles))
 //["shoulders", "chest", "arms", "back", "legs"]
-*/
+==================================
 
 
 //init object
-/*
+
 const a={}//create object
 a.name="Nikhom"; //create property
 a["surname"]="Phut"; //create property
 const b=[a] //create array
 const c=[...b,{name:"Moo",surname:"Vijit"}]//modify array
 console.log(c)
-*/
-
-
 /*
-const newArray=(arrayA)=>arrayA.reduce((total,f)=>{
-  console.log(f.muscles)//shoulders
-  console.log(total[f.muscles])//undefine
-  if (!total[f.muscles]) {    
-    total[f.muscles] = 1 ;//shoulder:1
-  } else {
-    total[f.muscles] = total[f.muscles] + 1//shoulder:1+1
-    ;
-  }
-  console.log(total)
-  return total; 
-},{}) //init object
-*/
-
-/*
-const newArray=(arrayA)=>arrayA.reduce((total,f)=>{
-  !total[f.muscles]    
-  ?total[f.muscles] = 1
-  :total[f.muscles] = total[f.muscles] + 1;
-  return total;
-},{})
+(2) [{…}, {…}]
+0: {name: "Nikhom", surname: "Phut"}
+1: {name: "Moo", surname: "Vijit"}
+length: 2
 */
 
 //===================================
 //===================================
-
-/*
 //How Asynchrous Work
 
 const posts=[
@@ -684,7 +610,7 @@ console.log('ok');
 //Call back in Asynchronous
 //Normally we need to arrage by ourself
 //Async 1
-/*
+
 const posts=[
   {title:'Post1'},
   {title:'Post2'}
@@ -717,11 +643,10 @@ createPost=(array2,newobj,callback)=>{
 
 createPost(posts,{title:'Post 3'},getPost);
 //Post1 and Post2 and Post 3 and
-*/
+
 //==================================
 //basic promise
 
-/*
 let p1=new Promise((resolve,reject)=>{
   if(true)
     {resolve('p1 resolved')}
@@ -744,11 +669,11 @@ p3().then(m=>console.log(m));
 //p3 resolved
 p4().then(m=>console.log('ok')).catch(m=>console.log(m));
 //p4 rejected
-*/
+
 
 //=================
 //Promise.all
-/*
+
 const promise1=Promise.resolve('Hello World');
 const promise2=10;
 const promise3=new Promise((resolve,reject)=>{
@@ -760,11 +685,10 @@ Promise.all([promise1,promise2,promise3,promise4])
 .then(m=>console.log(m));
 //(4) ["Hello World", 10, "Goodbye", Array(10)]
 //it happet accordingly 1,2,3,4
-*/
 
 //==================================
 //promise advance
-/*
+
 const posts=[
   {title:'Post1'},
   {title:'Post2'}
@@ -809,10 +733,10 @@ getPost(posts);
 
 //Post1 and Post2 and
 //Post1 and Post2 and Post3 and //delay beacause timeout
-*/
+
 //======================================
 //======================================
-/*
+
 function g(){
   return Promise.resolve(3);
 }
@@ -825,10 +749,7 @@ async function f(){
 f().then(m=>console.log(m))
 //3
 //1
-*/
-
-
-/*
+====================================
 async function f(){
   let p1=new Promise((resolve,reject)=>{
     setTimeout(()=>resolve('Done'),1000)
@@ -839,7 +760,8 @@ async function f(){
 }
 
 f();
-*/
+==========================
+
 ////Review Set Time Out
 /*
 const printA=()=>{
