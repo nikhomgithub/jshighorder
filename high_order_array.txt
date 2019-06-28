@@ -12,31 +12,90 @@ const person=[
   {name:"Sudoku", age:12,sex:"female"}
 ]
 
-/*
+
 //for loop
 for(let i=0;i<person.length;i++){
   console.log(person[i]);
 }
-*/
 
-/*
+{name: "Nikhom", age: 41, sex: "male"}
+age: 41
+name: "Nikhom"
+sex: "male"
+__proto__: Object
+arrow.js:10 
+{name: "Moo", age: 30, sex: "female"}
+age: 30
+name: "Moo"
+sex: "female"
+__proto__: Object
+arrow.js:10 
+{name: "Peter", age: 35, sex: "male"}
+age: 35
+name: "Peter"
+sex: "male"
+__proto__: Object
+arrow.js:10 
+{name: "Sudoku", age: 12, sex: "female"}
+age: 12
+name: "Sudoku"
+sex: "female"
+__proto__: Object
+========================================
+
 //forEach
 person.forEach((a)=>{
   console.log(a);
 })
+{name: "Nikhom", age: 41, sex: "male"}
+age: 41
+name: "Nikhom"
+sex: "male"
+__proto__: Object
+arrow.js:10 
+{name: "Moo", age: 30, sex: "female"}
+age: 30
+name: "Moo"
+sex: "female"
+__proto__: Object
+arrow.js:10 
+{name: "Peter", age: 35, sex: "male"}
+age: 35
+name: "Peter"
+sex: "male"
+__proto__: Object
+arrow.js:10 
+{name: "Sudoku", age: 12, sex: "female"}
+age: 12
+name: "Sudoku"
+sex: "female"
+__proto__: Object
+
+=================================
+
 */
 /*
 //fitler = to filter some members from existing array
 //filter
 const oldPerson=person.filter(p=>p.age>18)
 console.log(oldPerson);
-*/
+//(3) [{…}, {…}, {…}]
+//0: {name: "Nikhom", age: 41, sex: "male"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//length: 3
+//__proto__: Array(0)
+
+//=================================
 
 /*
 //filter 
 const malePerson=person.filter(p=>p.sex==="male")
 console.log(malePerson);
+//0: {name: "Nikhom", age: 41, sex: "male"}
+//1: {name: "Peter", age: 35, sex: "male"}
 
+==================================
 //filter out
 const notMalePerson=person.filter(p=>p.sex!=="male")
 console.log(notMalePerson);
@@ -49,9 +108,22 @@ const personName=person.map((p)=>{
 })
 console.log(personName);
 
+//(4) ["Nikhom is a good person", "Moo is a good person", "Peter is a good person", "Sudoku is a good person"]
+//0: "Nikhom is a good person"
+//1: "Moo is a good person"
+//2: "Peter is a good person"
+//3: "Sudoku is a good person"
+=====================================
+
 const ageSquare=person.map((p)=>p.age*p.age)
 console.log(ageSquare)
-*/
+
+//(4) [1681, 900, 1225, 144]
+//0: 1681
+//1: 900
+//2: 1225
+//3: 144
+=================================
 
 //sort
 /*
@@ -62,15 +134,43 @@ const sortPerson=person.sort((p1,p2)=>{
     return -1
   }
 })
+
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Sudoku", age: 12, sex: "female"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//3: {name: "Nikhom", age: 41, sex: "male"}
+=====================================
 //or in short form
 const sortPerson=person.sort((a,b)=>(a.age>b.age ? 1 : -1));
 console.log(sortPerson)
 
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Sudoku", age: 12, sex: "female"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//3: {name: "Nikhom", age: 41, sex: "male"}
+
+===================================
 const sortPersonUp=person.sort((a,b)=>a.age-b.age);
 console.log(sortPersonUp)
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Sudoku", age: 12, sex: "female"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//3: {name: "Nikhom", age: 41, sex: "male"}
+
+==================================
 const sortPersonDown=person.sort((a,b)=>b.age-a.age);
 console.log(sortPersonDown)
-*/
+
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Nikhom", age: 41, sex: "male"}
+//1: {name: "Peter", age: 35, sex: "male"}
+//2: {name: "Moo", age: 30, sex: "female"}
+//3: {name: "Sudoku", age: 12, sex: "female"}
+
+=====================================
 
 /*
 //reduce
@@ -79,10 +179,10 @@ console.log(sortPersonDown)
 //total+p.age ===========>  total+=p.age
 const ageSum=person.reduce((total,p)=>total+p.age,0);
 console.log(ageSum);
+//118
 */
 
 //combine
 const combine=person.map(p=>p.age*2).filter(p=>p>50).sort((a,b)=>b-a).reduce((total,a)=>total+a,0);
-                   
-
 console.log(combine);
+//212
