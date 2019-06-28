@@ -1,58 +1,53 @@
-//const person=["Nikhom","Peter","Tony","Steve"]
+const person=["Nikhom","Peter","Tony","Steve"]
 
-/*
 const a=person.map((p,index)=>`${p} good boy`)
 console.log(a)
-*/
 
-/*
+//(4) ["Nikhom good boy", "Peter good boy", "Tony good boy", "Steve good boy"]
+
+==========
 const b=person.map((p,index)=>{
   const c="bad boy";
   return `${p} ${c}`;
 })
-
 console.log(b);
-*/
 
-/*
+//["Nikhom bad boy", "Peter bad boy", "Tony bad boy", "Steve bad boy"]
+======================
 const c=person.map((p,index)=>({
   name:p
 }))
 console.log(c);
-*/
+//(4) [{…}, {…}, {…}, {…}]
+0: {name: "Nikhom"}
+1: {name: "Peter"}
+2: {name: "Tony"}
+3: {name: "Steve"}
 
-/*
-const c=person.map((p,index)=>{
-  return{
-    name:p
-  }
-});
-console.log(c)
-*/
-
-
+========================
 //Full old class pattern
 //because each "function" is object and has "this" in itself
 //if use "function" in "function" it will confuse has 2 "this"
-/*
+
 function People(firstName,hobby){
    this.firstName=firstName,
    this.hobby=hobby
   
    this.showHobby=function(){
-    let self=this // separate outside "this" from inner "this"
+    let self=this // separate outside "this" from inner "this" (let self)
     return this.hobby.map(function(a){
-      console.log(self.firstName+' love '+a)
+      let sel
+      console.log(self.firstName+' love '+a) //
     })
    }
 }
-
 let people=new People('Alex',["Soccer","PingPong","Swimming"])
-
 people.showHobby();
-*/
 
-/*
+//Alex lovs Soccer
+//Alex love Pingpong
+//Alex love Swimming
+===========================
 //use bind(this) to bind with outsid "this"
 function People(firstName,hobby){
    this.firstName=firstName,
@@ -68,9 +63,10 @@ function People(firstName,hobby){
 let people=new People('Alex',["Soccer","PingPong","Swimming"])
 
 people.showHobby();
-*/
-
-
+//Alex lovs Soccer
+//Alex love Pingpong
+//Alex love Swimming
+=====================================
 //use arrow function , it has no inside "this" so it will not mixing 
 function People(firstName,hobby){
     this.firstName=firstName,
