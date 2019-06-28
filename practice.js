@@ -1,13 +1,15 @@
-/*
+
 const a=[1,2,3,4,5]
 const b=[...a,6,7,8]
-//console.log(b);
-
+console.log(b);
+//(8) [1, 2, 3, 4, 5, 6, 7, 8]
+================
 const obj1={ "name":"Nik",
             "last name":"Phut" }
 
-//console.log(obj1["last name"]);
-
+console.log(obj1["last name"]);
+//Phut
+===============
 const obj2=[{name:"Vijit",
              last_name:"Moo"},
             {name:"Mee",
@@ -15,38 +17,72 @@ const obj2=[{name:"Vijit",
            ]
 const objA=[obj1,obj2]
 const objB=[obj1,...obj2]
-//console.log(objA);
-//console.log(objB);
-
+console.log(objA);
+//(2) [{…}, Array(2)]
+//0: {name: "Nik", last name: "Phut"}
+//1: (2) [{…}, {…}]
+================
+console.log(objB);
+//(3) [{…}, {…}, {…}]
+//0: {name: "Nik", last name: "Phut"}
+//1: {name: "Vijit", last_name: "Moo"}
+//2: {name: "Mee", last_name: "MeeMee"}
+================
 const makeObject=(args)=>{
     const obj1={ "name":"Nik",
             "last name":"Phut" }
     return [obj1,...args]
 }
-//console.log(makeObject(obj2));
-
+console.log(makeObject(obj2));
+//(3) [{…}, {…}, {…}]
+//0: {name: "Nik", last name: "Phut"}
+//1: {name: "Vijit", last_name: "Moo"}
+//2: {name: "Mee", last_name: "MeeMee"}
+//length: 3
+==================
 const person=[
     {name:"Nikhom", age:41,sex:"male"},
     {name:"Moo", age:30,sex:"female"},
     {name:"Peter", age:35,sex:"male"},
     {name:"Sudoku", age:12,sex:"female"}
   ]
+person.forEach((a)=>{console.log(a);})
 
-//person.forEach((a)=>{console.log(a);})
-
+//arrow.js:7 {name: "Nikhom", age: 41, sex: "male"}
+//arrow.js:7 {name: "Moo", age: 30, sex: "female"}
+//arrow.js:7 {name: "Peter", age: 35, sex: "male"}
+//arrow.js:7 {name: "Sudoku", age: 12, sex: "female"}
+====================
 const oldPerson=person.filter(p=>p.age>18)
-//console.log(oldPerson);
-
+console.log(oldPerson);
+//(3) [{…}, {…}, {…}]
+//0: {name: "Nikhom", age: 41, sex: "male"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+=========================
 const malePerson=person.filter(p=>p.sex==="male")
-//console.log(malePerson);
+console.log(malePerson);
+//(2) [{…}, {…}]
+//0: {name: "Nikhom", age: 41, sex: "male"}
+//1: {name: "Peter", age: 35, sex: "male"}
 
+========================
 const notMalePerson=person.filter(p=>p.sex!=="male")
-//console.log(notMalePerson);
-
+console.log(notMalePerson);
+//(2) [{…}, {…}]
+//0: {name: "Moo", age: 30, sex: "female"}
+//1: {name: "Sudoku", age: 12, sex: "female"}
+=========================
 const personName=person.map((p)=>{
     return `${p.name} is a good person`
 })
-//console.log(personName);
+console.log(personName);
+//(4) ["Nikhom is a good person", "Moo is a good person", "Peter is a good person", "Sudoku is a good person"]
+//0: "Nikhom is a good person"
+//1: "Moo is a good person"
+//2: "Peter is a good person"
+//3: "Sudoku is a good person"
+=================================
 
 let sortPerson=person.sort((p1,p2)=>{
     if(p1.age>p2.age){
@@ -55,27 +91,46 @@ let sortPerson=person.sort((p1,p2)=>{
       return -1
     }
   })
-//console.log(sortPerson)  
-
+console.log(sortPerson)  
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Sudoku", age: 12, sex: "female"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//3: {name: "Nikhom", age: 41, sex: "male"}
+===========================
 sortPerson=person.sort((a,b)=>(a.age>b.age ? 1 : -1));
-//console.log(sortPerson)
-
+console.log(sortPerson)
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Sudoku", age: 12, sex: "female"}
+//1: {name: "Moo", age: 30 sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//3: {name: "Nikhom", age: 41, sex: "male"}
+========================
 const sortPersonUp=person.sort((a,b)=>a.age-b.age);
-//console.log(sortPersonUp)
+console.log(sortPersonUp)
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Sudoku", age: 12, sex: "female"}
+//1: {name: "Moo", age: 30, sex: "female"}
+//2: {name: "Peter", age: 35, sex: "male"}
+//3: {name: "Nikhom", age: 41, sex: "male"}
+==========================
 const sortPersonDown=person.sort((a,b)=>b.age-a.age);
-//console.log(sortPersonDown)
-
-
-
+console.log(sortPersonDown)
+//(4) [{…}, {…}, {…}, {…}]
+//0: {name: "Nikhom", age: 41, sex: "male"}
+//1: {name: "Peter", age: 35, sex: "male"}
+//2: {name: "Moo", age: 30, sex: "female"}
+//3: {name: "Sudoku", age: 12, sex: "female"}
+============================
 const ageSum=person.reduce((total,p)=>total+p.age,0);
-//console.log(ageSum);
-
+console.log(ageSum);
+//118
+==============================
 const combine=person.map(p=>p.age*2).filter(p=>p>50).sort((a,b)=>b-a).reduce((total,a)=>total+a,0);
-//console.log(combine);
-
-*/
-//====================================
-/*
+console.log(combine);
+//212
+=============================
+============================
 const car={
   brand:'Ford Ranger',
   color:'red'
@@ -85,22 +140,22 @@ console.log(car.color);
 console.log(car['color']);
 const ptname='color';
 console.log(car[ptname]);
-*/
-/*
+=============================
 const menu={
   burger:10,
   fries:3,
   beer:5
 }
-
 getPrice=(men,itm)=>{
   const itemPrice=men[itm];
   return itemPrice
 }
-
 console.log(menu['beer']);
+//5
 console.log(getPrice(menu,'beer'))
-*/
+//5
+============================        
+            
 
 /*
 const menu=[
