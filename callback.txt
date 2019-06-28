@@ -53,7 +53,7 @@ const checkAuth=()=>{
         resolve(true) // to return some value after 2000 we can use this value after that
      },2000)
      
-  }
+  })
 }
 
 const fetchUser=()=>{
@@ -64,14 +64,14 @@ const fetchUser=()=>{
         resolve({name:"Max"})  // to return some value after 2000 we can use this value after that
    },2000)
    
- }
+ })
 }
 
 //======================================
 button.addEventListener("click",()=>{
   checkAuth()
   .then(a=>{return fetchUser()})
-  .then(b=>{setText(b)})            
+  .then(b=>{setText(b.name)})            
   
 })
 
