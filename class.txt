@@ -59,15 +59,23 @@ class Account{
     console.log("Bood boy")
   }
 
+
 }
 
 let acct=new Account(500) //initate object
 
 console.log(acct.balance) //get balance()
-
+//500
 acct.balance=1000 //set balance
 
 console.log(acct.balance) //get balance
+//1000
+
+acct.balance=-1000
+//Uncaught Balance must be positive
+
+
+
 
 //เราสามารถสร้าง extend class ง่ายๆ โดยสามารถ อินเฮริท มากจากคลาสแม่ได้
 //extend class
@@ -80,9 +88,11 @@ class PremiumAccount extends Account{
 
 let pmcct=new PremiumAccount(500,100);
 console.log(pmcct.balance)
+//500
 pmcct.deposit(100)
 console.log(pmcct.balance)
+//600
 Account.printBalance()
-
+//Bood boy
 เราสามารถไปที่ babeljs.io แล้วใส่ es6 ลงไป มันจะแปลงเป็น ex5 ให้
 แต่ใน es6 ไม่สามารถใส่ static property (ค่าคงที่) ใน proto ได้
